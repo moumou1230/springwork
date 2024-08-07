@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>test.html</title>
+</head>
+<body>
+	<!-- thymeleaf, 유일한태그 -->
+	<th:block th:each=" num : ${#numbers.sequence(1,5)}">
+		<p th:text="${num}" />
+	</th:block>
+</body>
+</html>
