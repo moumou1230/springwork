@@ -5,9 +5,19 @@
 <title>test.html</title>
 </head>
 <body>
-	<!-- thymeleaf, 유일한태그 -->
+	<h1>타임리프 테스트</h1>
+	<!--/* thymeleaf, 유일한태그 [[]] */-->
 	<th:block th:each=" num : ${#numbers.sequence(1,5)}">
 		<p th:text="${num}" />
 	</th:block>
+	
+	<!--/* 타임리프 기본방식
+			1)th:속성="${}"
+			2)th:src or th:href or th:action ="@{}" */-->
+	<a th:href="@{/empList}" th:text="'전체조회'"/><!--context-path등록때문에 thymeleaf 사용하지 않으면 에러가 난다.  -->
+	<!-- <a href="/empList">전체조회</a> -->
+	
+	<p>사원정보 : [[${empInfo}]]</p> <!--/* 템플릿 문법([[]]) 이라서 사용시 알아서 toString 해주기때문에 문자랑 +없이 사용이 가능? */-->
+	<p th:id="${empInfo.employeeId}" th:name="${empInfo.lastName}" th:text="${'업무 : '+ empInfo.jobId + ', ' +'부서번호 : ' + empInfo.departmentId }"/>
 </body>
 </html>

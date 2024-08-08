@@ -9,13 +9,14 @@ import com.yedam.app.emp.service.EmpVO;
 
 import lombok.AllArgsConstructor;
 
+
 @Controller
 @AllArgsConstructor
 public class ThymeleafController {
 	private EmpService empService;
 	
 	@GetMapping("thymeleaf")
-	public String thymeleafTest(Model model) {
+	public String thymeleafTest(Model model) {//model은 클라이언트까지 전달이 아니고 page까지 전달?
 		EmpVO empVO = new EmpVO();
 		empVO.setEmployeeId(100);
 		
