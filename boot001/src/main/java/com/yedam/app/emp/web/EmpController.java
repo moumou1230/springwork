@@ -49,6 +49,7 @@ public class EmpController {
 		EmpVO findVO = empService.empInfo(empVO);
 		// 2) 클라이언트 전달할 데이터 담기
 		model.addAttribute("emp", findVO);
+		
 		return "emp/info";// 3) 데이터를 출력할 페이지 결정 
 		// classpath:/templates/emp/info.html
 		//   prefix				return	  suffix
@@ -85,13 +86,13 @@ public class EmpController {
 	}
 	
 	// 수정 - 처리 : AJAX => QueryString
-	//@PostMapping("empUpdate")
+	@PostMapping("empUpdate")
 	@ResponseBody //AJAX
 	public Map<String, Object> empUpdateAjaxQueryString(EmpVO empVO){
 		return empService.empUpdate(empVO);
 	}
 	// 수정 - 처리 : AJAX => JSON
-	@PostMapping("empUpdate")
+	//@PostMapping("empUpdate")
 	@ResponseBody
 	public Map<String, Object> empUpdateAjaxJson(@RequestBody EmpVO empVO){
 		return empService.empUpdate(empVO);

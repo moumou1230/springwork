@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org/"  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<th:block th:replace = "~{common/configs/default_config :: BootstrapConfig}"></th:block>
+<th:block th:replace = "~{common/configs/default_config :: jQueryConfig}"></th:block>
+</head>
+<body>
+	<header th:insert="~{common/fragments/header::HeaderFrag}"></header><!-- insert 는 태그의 하위에 fragment 넣는다 -->
+	<main>
+		<th:block layout:fragment="Content"></th:block>
+	</main>
+	<footer th:replace="~{common/fragments/footer::FooterFrag}"></footer>
+</body>
+</html>

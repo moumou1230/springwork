@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org/">
+<html xmlns:th="https://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common/layouts/default_layout}"
+	layout:fragment="Content">
 <head>
 <meta charset="UTF-8">
 <!-- <meta name="contextPath" th:value="${#httpServletRequest.getContextPath()}"> -->
-<meta name="contextPath" th:value="${contextPath}"><!-- common.config 에서 작성했다. -->
+<meta name="contextPath" th:value="${contextPath}">
+<!-- common.config 에서 작성했다. -->
 <title>list</title>
-<script src="https://code.jquery.com/jquery-3.7.1.js"
-	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-	crossorigin="anonymous"></script>
+<th:block th:replace="~{common/configs/default_config :: jQueryConfig}"></th:block>
+<!-- view resolver 도움받아서 (prefix suffix )  -->
 </head>
 <body>
 	<div>
@@ -26,8 +29,10 @@
 				<th:block th:each="info,iterStat : ${emps}">
 					<!-- each는 block과 같이 사용 -->
 					<!-- 반복하고자 하는 태그 -->
-					<tr> <!-- th:onclick = "|location.href='@{/empInfo(employeeId=${info.employeeId})}'|"> --><!-- ||보이는 그대로 출력을 해달라고 선언?  -->
-					<!-- 값이 두개가 들어가야된다면 (key=${value},key=${value}) -->
+					<tr>
+						<!-- th:onclick = "|location.href='@{/empInfo(employeeId=${info.employeeId})}'|"> -->
+						<!-- ||보이는 그대로 출력을 해달라고 선언?  -->
+						<!-- 값이 두개가 들어가야된다면 (key=${value},key=${value}) -->
 						<td>[[${iterStat.count}]]</td>
 						<!-- count는 1부터 시작해서 몇번쨰인지 -->
 						<td th:text="${info.employeeId}" />
@@ -42,13 +47,13 @@
 		</table>
 	</div>
 	<script>
-	 	const context = $('meta[name="contextPath"]').attr('value');
-		$('tbody > tr').on('click', function(event){		
-		
+		const context = $('meta[name="contextPath"]').attr('value');
+		$('tbody > tr').on('click', function(event) {
+
 			let eid = $(event.currentTarget).children().eq(1).text(); //currentTarget 은 tr을 가르킨다
-			let url = context+'/empInfo?employeeId='+ eid;
-			location.href=url;
-		}); 
-		</script>
+			let url = context + '/empInfo?employeeId=' + eid;
+			location.href = url;
+		});
+	</script>
 </body>
 </html>
