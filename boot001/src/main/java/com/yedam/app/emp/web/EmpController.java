@@ -29,7 +29,7 @@ public class EmpController {
 	// Post : 데이터 조작(등록, 수정, 삭제)
 	
 	// 전체조회 : GET
-	@GetMapping("empList")//Model = Request + Response
+	@GetMapping("empList")//Model = Request + Response// 데이터를 뷰로 전달
 	public String empList(Model model) {
 		// 1) 해당기능  => Service
 		List<EmpVO> list = empService.empList();

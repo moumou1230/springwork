@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common/layouts/dept_layout}"
+	layout:fragment="Content">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form name="updateForm" th:object="${dept}">
+
+		<h3>부서 정보 수정</h3>
+		<div>
+			<label for="did">부서 번호</label> <input type="text" id="did"
+				th:field ="*{departmentId}" readonly>
+		</div>
+		<div>
+			<label for="dname">부서명</label> <input type="text" id="dname"
+				th:field="*{departmentName}">
+		</div>
+		<div>
+			<label for="mid">매니저 번호</label> <input type="text" id="mid"
+				th:field="*{managerId}">
+		</div>
+		<div>
+			<label for="lid">지역 번호</label> <input type="text" id="lid"
+				th:field="*{locationId}">
+		</div>
+
+		<div>
+			<button type="button" id="updateBtn">수정</button>
+		</div>
+	</form>
+	<script>
+		$('#updateBtn').on('click',function(e){
+			let dataObj = getData();
+			$.ajax('deptUpdate',{
+				type : 'post', 
+				data : dataObj
+			})
+			.done(result => {
+				console.log(result);
+			})
+			.fail(err => console.log(err));
+			
+		})
+		function getData(){
+			let arr = $('form[name="updateForm"]').serializeArray();
+			let obj = {};
+			
+			$.each(arr, function(idx, ele){
+				obj[ele.name] = ele.value;
+			})
+			return obj;
+		}
+		
+	</script>
+</body>
+</html>

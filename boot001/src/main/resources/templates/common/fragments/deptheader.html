@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<div xmlns:th="https://www.thymeleaf.org/" th:fragment="DeptHeaderFrag">
+	<nav class="nav nav-pills flex-column flex-sm-row">
+		<a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" th:href="@{/deptList}">전체 부서 조회</a> 
+		<a class="flex-sm-fill text-sm-center nav-link" th:href="@{/deptInsert}">부서 등록</a>
+		<a class="flex-sm-fill text-sm-center nav-link disabled" aria-disabled="true">Disabled</a>
+	</nav>
+</div>

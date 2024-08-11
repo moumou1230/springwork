@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common/layouts/dept_layout}"
+	layout:fragment="Content">
+<head>
+<meta charset="UTF-8">
+<meta name = "contextPath" th:value= "${contextPath}">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<h1>부서 정보 조회</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>부서 번호</th>
+					<th>부서명</th>
+					<th>매니저 번호</th>
+					<th>지역 번호</th>
+				</tr>
+			</thead>
+			<tbody>
+			<th:block th:each="dept : ${depts}">
+			
+				<tr>
+					<th>[[${dept.departmentId}]]</th>
+					<th>[[${dept.departmentName}]]</th>
+					<th>[[${dept.managerId}]]</th>
+					<th>[[${dept.locationId}]]</th>
+				</tr>
+			</th:block>
+			</tbody>
+		</table>
+	</div>
+	<script>
+		const context = $('meta[name="contextPath"]').attr('value');
+		$('tbody > tr').on('click',function(e){
+			let deptId = $(e.currentTarget).children().eq(0).text();
+			let url = context +'/deptInfo?departmentId='+deptId;
+			location.href = url;
+					
+		});
+		
+	</script>
+</body>
+</html>
