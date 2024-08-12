@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yedam.app.dept.service.DeptService;
 import com.yedam.app.dept.service.DeptVO;
@@ -58,6 +59,7 @@ public class DeptController {
 		return "dept/update";
 	}
 	@PostMapping("deptUpdate")
+	@ResponseBody
 	public Map<String, Object> deptUpdateAjax(DeptVO deptVO){
 		return deptService.deptUpdate(deptVO);
 	}

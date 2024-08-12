@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>formUpload.html</title>
+</head>
+<body>
+	<form th:action="@{/uploadForm}" 
+		  method="post" 
+		  enctype="multipart/form-data"><!-- multipartResolve라고 bean이 등록됨  아닌가 자동등록인가 이건-->
+		  <input type="file" name = "files" multiple> <!-- multiple 파일 여러개 한번에 등록가능 -->
+		  <button type="submit">저장</button>
+	
+	</form>
+</body>
+</html>

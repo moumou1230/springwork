@@ -1,0 +1,19 @@
+ **0812
+ 
+ --MultipartResolver Setting(properties 쪽)
+ 1.파일이 특정크기이상이면 임시공간에 지정해서 담아둔다.
+ 2.file-size-threshold: 메모리에 바로 올리는 크기(메모리는 한정적이라 원래 자동으로 임시저장을 시킨다)
+ 3.location: 임시저장공간을 따로 저장해놓아야된다.
+ 4.max-file-size : 업로드 할 수 있는 파일의 최대크기(한파일?)
+ 5.max-request-size : 한번에 요청할 수 있는 파일의 사이즈(파일들의 총 크기)
+ MB로 작성은 Spring boot 쪽에서만 가능하다(다른곳에선 byte로 계산해서 작성, 문자열이 인식이 안됨)
+ 
+ --file.upload.path=D:/upload/ : 뒤에 "/" 붙어야되는 이유가 .addResourceLocations때문에 있어야됨 경로에 붙는거라서 (WebMvcConfig)
+ 
+ --security
+ (pdf 1페이지)
+ 1. Filter : 경비나 문으로 생각 (인증(신분을 확인)을 받으면 토큰을 발급, 토큰이 있으면 추가적으로 인증을 받을 필요가 없다.)
+ 2. AuthenticationFilter : 인증과 인가를 책임(책임자)
+ 3. AuthenticationProvider : 실무자(제대로된 정보를 입력했는지 권한이 있는지 확인해서 Filter에게 돌려준다)
+ 4. UserDetailsService : 파일이나 db 메모리에 있는 정보를 조회해서 비교 한다.(실제 인증이나 인가가 발생하는곳)
+ 5. SecurityContext : 세션 같은곳
