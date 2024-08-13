@@ -12,13 +12,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-@Getter
+@Getter //필드 사용가능하게 userVO
 public class LoginUserVO implements UserDetails {// 로그인했을때(인스턴스를 생성하면서) 딱 한번 값을 가지는게 끝이라서 @data랑 @setter사용하면 안됨
 	
 	private UserVO userVO;
 	
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {//권한에 대한 정보
+	public Collection<? extends GrantedAuthority> getAuthorities() {//권한에 대한 정보 
 		List<GrantedAuthority> auths = new ArrayList<>();
 		auths.add(new SimpleGrantedAuthority(userVO.getRoleName()));
 		return auths;

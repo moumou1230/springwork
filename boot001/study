@@ -17,3 +17,24 @@
  3. AuthenticationProvider : 실무자(제대로된 정보를 입력했는지 권한이 있는지 확인해서 Filter에게 돌려준다)
  4. UserDetailsService : 파일이나 db 메모리에 있는 정보를 조회해서 비교 한다.(실제 인증이나 인가가 발생하는곳)
  5. SecurityContext : 세션 같은곳
+ 
+--thymeleaf extras security6 구글에서 검색해야됨
+  : xmlns:sec로 설정 해줘야된다.
+ --pdf 7페이지 확인
+ 
+ 
+ **0813
+ --CSRF
+   : csrf 돌아가면 put ,post등 csrf 설정안된곳은 실행이 안된다.
+ --lambda dsl(security)
+ --빌더(builder) 패턴(밑에 껀데 한번 봐보기)
+    UserDetails user =  User.builder()// 밑에는 초기값들을 세팅해주는?
+								.username("user1")
+								.password(passwordEncoder().encode("1234"))
+								.roles("USER")// ROLE_USER
+								// .authorities("ROLE_USER")
+								.build();
+ 
+ --extends 반대는 super
+ 
+ 

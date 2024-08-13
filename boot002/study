@@ -1,0 +1,8 @@
+
+--fragment
+  : th:replace 전부교체
+	th:insert 하위만 교체
+
+	
+--생성자 주입 하는 이유 다시 보기
+seviceImpl에서

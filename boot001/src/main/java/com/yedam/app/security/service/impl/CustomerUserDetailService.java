@@ -6,8 +6,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.yedam.app.security.mapper.UserMapper;
+import com.yedam.app.security.service.LoginUserVO;
+import com.yedam.app.security.service.UserVO;
+
 @Service
-public class CustomerUserDetailService implements UserDetailsService {
+public class CustomerUserDetailService implements UserDetailsService {//입력받은 아이디를 있는지 없는지 판단(UserDetailsService)
 	private UserMapper userMapper;
 
 	@Autowired

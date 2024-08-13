@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common/layouts/default_layout}"
+	layout:fragment="Content">
+<head>
+<meta charset="UTF-8">
+<title>title</title>
+</head>
+<body>
+	<form>
+		<label for="bno">게시글 번호</label>
+		<input type="text" id="bno" th:value="${board.bno}" readonly>
+		<label for="btitle">제목</label>
+		<input type="text" id="btitle" th:value="${board.title}" readonly>
+		<label for="bcontent">내용</label>
+		<input type="text" id="bcontent" th:value="${board.content}" readonly>
+		<label for="bwriter">작성자</label>
+		<input type="text" id="bwriter" th:value="${board.writer}" readonly>
+		<label for="breg">작성일</label>
+		<input type="text" id="breg" th:value="${board.regdate}" readonly>
+		<label for="bupdate">수정일</label>
+		<input type="text" id="bupdate" th:value="${board.updatedate}" readonly>
+	</form>
+</body>
+</html>
